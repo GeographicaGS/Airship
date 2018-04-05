@@ -4,7 +4,7 @@ $white: #FFFFFF;
 
 $brand1: var(--brand1, #1785FB);
 $brand2: var(--brand2, #0F2D53);
-$brand3:  var(--brand3, #0F2D53);
+$brand3:  var(--brand3, #47DB99);
 
 $type1:  var(--type1, #2C2C2C);
 $type2:  var(--type2, #747474);
@@ -17,11 +17,12 @@ $ui3:  var(--ui3, #E2E6E3);
 $ui4:  var(--ui4, #D1D5D7);
 
 $support1:  var(--support1, #F3522B);
-$support1:  var(--support1, #FDB32B);
-$support1:  var(--support1, #80B622);
+$support2:  var(--support2, #FDB32B);
+$support3:  var(--support3, #80B622);
 
 $animationFuncDefault: ease;
 $animationFuncAlt: linear;
 $animationTimeDefault: .5s;
 $animationTimeFast: .25s;
 $animationTimeBlink: .125s;
+
