@@ -1,0 +1,25 @@
+$fontFamily: 'Roboto', sans-serif;
+
+$brand1: var(--brand1, #1785FB);
+$brand2: var(--brand2), #0F2D53;
+$brand3:  var(--brand3), #0F2D53;
+
+$type1:  var(--type1), #2C2C2C;
+$type2:  var(--type2), #747474;
+$type3:  var(--type3), #BABABA;
+$type4:  var(--type4), #FFFFFF;
+
+$ui1:  var(--ui1), #FFFFFF;
+$ui2:  var(--ui2), #F5F5F5;
+$ui3:  var(--ui3), #E2E6E3;
+$ui4:  var(--ui4), #D1D5D7;
+
+$support1:  var(--support1), #F3522B;
+$support1:  var(--support1), #FDB32B;
+$support1:  var(--support1), #80B622;
+
+$animationFuncDefault: ease;
+$animationFuncAlt: linear;
+$animationTimeDefault: .5s;
+$animationTimeFast: .25s;
+$animationTimeBlink: .125s;

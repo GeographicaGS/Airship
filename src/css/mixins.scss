@@ -1,0 +1,41 @@
+@mixin font($style: 'none', $ffamily: $fontFamily) {
+  @if ($style == 'italic') {
+    @include fontweight(400, $ffamily);
+    font-style: italic;
+  } @else if ($style == 'light') {
+    @include fontweight(300, $ffamily);
+  } @else if ($style == 'lightitalic') {
+    @include fontweight(300, $ffamily);
+    font-style: italic;
+  } @else if ($style == 'regular') {
+    @include fontweight(400, $ffamily);
+  } @else if ($style == 'medium') {
+    @include fontweight(500, $ffamily);
+  } @else if ($style == 'mediumitalic') {
+    @include fontweight(500, $ffamily);
+    font-style: italic;
+  } @else if ($style == 'semibold') {
+    @include fontweight(600, $ffamily);
+  } @else if ($style == 'semibolditalic') {
+    @include fontweight(600, $ffamily);
+    font-style: italic;
+  } @else if ($style == 'bold') {
+    @include fontweight(700, $ffamily);
+  } @else if ($style == 'bolditalic') {
+    @include fontweight(700, $ffamily);
+    font-style: italic;
+  } @else if ($style == 'condensedbold') {
+    @include fontweight(700, $fontFamilyCondensed);
+  } @else if ($style == 'condensedregular') {
+    @include fontweight(400, $fontFamilyCondensed);
+  } @else if ($style == 'condensedlight') {
+    @include fontweight(300, $fontFamilyCondensed);
+  } @else {
+    @include fontweight(400, $ffamily);
+  }
+}
+
+@mixin fontweight($fweight, $ffamily: $fontFamily) {
+  font-weight: $fweight;
+  font-family: $ffamily;
+}
