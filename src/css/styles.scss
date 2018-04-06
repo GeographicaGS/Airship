@@ -1,8 +1,118 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i');
 @import './reset.scss';
-@import './theme.scss';
+@import './common.scss';
 
 
 body {
   font-family: $fontFamily;
+
+  button {
+    font-size: 12px;
+    @include font('medium');
+    border-radius: 4px;
+    padding: 0 12px;
+    height: 32px;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: $colorBrand1;
+    position: relative;
+    cursor: pointer;
+    transition: opacity $animationTimeFast $animationFuncAlt, background-color $animationTimeFast $animationFuncAlt;
+    &:hover {
+      background-color: $colorUi2;
+    }
+    &:active {
+      background-color: $colorUi3;
+    }
+    &.disabled {
+      opacity: .24;
+      pointer-events: none;
+    }
+    &.primary {
+      color: $colorWhite;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        border-radius: 4px;
+        background-color: $colorBrand1;
+      }
+      &:hover {
+        background-color: rgba(#2C2C2C, 0.4);
+      }
+      &:active {
+        background-color: rgba(#2C2C2C, 0.8);
+      }
+    }
+    &.secondary {
+      border: 1px solid $colorBrand1;
+    }
+    &.large {
+      font-size: 16px;
+      height: 40px;
+      padding: 0 16px;
+    }
+    &.small {
+      font-size: 10px;
+      height: 24px;
+      padding: 0 8px;
+      @include font('regular');
+    }
+  }
+
+  input[type="text"] {
+    height: 30px;
+    color: $colorType1;
+    font-size: 12px;
+    border: 1px solid $colorUi4;
+    border-radius: 4px;
+    background-color: $colorWhite;
+    padding: 0 8px;
+    transition: border-color $animationTimeFast $animationFuncAlt, box-shadow $animationTimeFast $animationFuncAlt;
+    &::-webkit-input-placeholder {
+      color: $colorType3;
+    }
+    &::-moz-placeholder {
+      color: $colorType3;
+    }
+    &:-ms-input-placeholder {
+      color: $colorType3;
+    }
+    &:-moz-placeholder {
+      color: $colorType3;
+    }
+    &:hover {
+      border-color: $colorBrand3;
+    }
+    &:focus {
+      // &:not(.error),
+      &:not(.error):not(:read-only):not(.readonly) {
+        border-color: $colorBrand1;
+        box-shadow: inset 0 0 0 1px $colorBrand1;
+      }
+    }
+    &.error{
+      border: 1px solid $colorSupport1;
+      background-color: rgba(243,82,43,0.08);
+    }
+    &.readonly, &:read-only {
+      background-color: $colorUi2;
+      border: 1px solid $colorUi3;
+    }
+    &.search {
+      background-image: url('data:image/svg+xml;utf8,<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M5,8 C3.346,8 2,6.654 2,5 C2,3.346 3.346,2 5,2 C6.654,2 8,3.346 8,5 C8,6.654 6.654,8 5,8 M11.817,10.934 L8.318,7.435 C8.287,7.403 8.248,7.387 8.212,7.363 C8.701,6.7 9,5.888 9,5 C9,2.791 7.209,1 5,1 C2.791,1 1,2.791 1,5 C1,7.209 2.791,9 5,9 C5.888,9 6.7,8.701 7.363,8.212 C7.387,8.248 7.403,8.287 7.435,8.319 L10.934,11.818 C11.056,11.94 11.215,12.001 11.375,12.001 C11.536,12.001 11.695,11.94 11.817,11.818 C12.062,11.574 12.062,11.178 11.817,10.934" id="Fill-3" fill="#D1D5D7"></path></g></svg>');
+      background-repeat: no-repeat;
+      background-position: 10px center;
+      padding-left: 30px;
+      &:focus {
+        background-image: url('data:image/svg+xml;utf8,<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M5,8 C3.346,8 2,6.654 2,5 C2,3.346 3.346,2 5,2 C6.654,2 8,3.346 8,5 C8,6.654 6.654,8 5,8 M11.817,10.934 L8.318,7.435 C8.287,7.403 8.248,7.387 8.212,7.363 C8.701,6.7 9,5.888 9,5 C9,2.791 7.209,1 5,1 C2.791,1 1,2.791 1,5 C1,7.209 2.791,9 5,9 C5.888,9 6.7,8.701 7.363,8.212 C7.387,8.248 7.403,8.287 7.435,8.319 L10.934,11.818 C11.056,11.94 11.215,12.001 11.375,12.001 C11.536,12.001 11.695,11.94 11.817,11.818 C12.062,11.574 12.062,11.178 11.817,10.934" id="Fill-3" fill="#1785FB"></path></g></svg>');
+      }
+    }
+  }
 }
