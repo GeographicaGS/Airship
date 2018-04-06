@@ -15,22 +15,22 @@ body {
     outline: none;
     background-color: transparent;
     border: none;
-    color: $brand1;
+    color: $colorBrand1;
     position: relative;
     cursor: pointer;
     transition: opacity $animationTimeFast $animationFuncAlt, background-color $animationTimeFast $animationFuncAlt;
     &:hover {
-      background-color: $ui2;
+      background-color: $colorUi2;
     }
     &:active {
-      background-color: $ui3;
+      background-color: $colorUi3;
     }
     &.disabled {
       opacity: .24;
       pointer-events: none;
     }
     &.primary {
-      color: $white;
+      color: $colorWhite;
       position: relative;
       &:before {
         content: '';
@@ -41,7 +41,7 @@ body {
         right: 0;
         z-index: -1;
         border-radius: 4px;
-        background-color: $brand1;
+        background-color: $colorBrand1;
       }
       &:hover {
         background-color: rgba(#2C2C2C, 0.4);
@@ -51,7 +51,7 @@ body {
       }
     }
     &.secondary {
-      border: 1px solid $brand1;
+      border: 1px solid $colorBrand1;
     }
     &.large {
       font-size: 16px;
@@ -68,42 +68,42 @@ body {
 
   input[type="text"] {
     height: 30px;
-    color: $type1;
+    color: $colorType1;
     font-size: 12px;
-    border: 1px solid $ui4;
+    border: 1px solid $colorUi4;
     border-radius: 4px;
-    background-color: $white;
+    background-color: $colorWhite;
     padding: 0 8px;
     transition: border-color $animationTimeFast $animationFuncAlt, box-shadow $animationTimeFast $animationFuncAlt;
     &::-webkit-input-placeholder {
-      color: $type3;
+      color: $colorType3;
     }
     &::-moz-placeholder {
-      color: $type3;
+      color: $colorType3;
     }
     &:-ms-input-placeholder {
-      color: $type3;
+      color: $colorType3;
     }
     &:-moz-placeholder {
-      color: $type3;
+      color: $colorType3;
     }
     &:hover {
-      border-color: $brand3;
+      border-color: $colorBrand3;
     }
     &:focus {
       // &:not(.error),
       &:not(.error):not(:read-only):not(.readonly) {
-        border-color: $brand1;
-        box-shadow: inset 0 0 0 1px $brand1;
+        border-color: $colorBrand1;
+        box-shadow: inset 0 0 0 1px $colorBrand1;
       }
     }
     &.error{
-      border: 1px solid $support1;
+      border: 1px solid $colorSupport1;
       background-color: rgba(243,82,43,0.08);
     }
     &.readonly, &:read-only {
-      background-color: $ui2;
-      border: 1px solid $ui3;
+      background-color: $colorUi2;
+      border: 1px solid $colorUi3;
     }
     &.search {
       background-image: url('data:image/svg+xml;utf8,<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path d="M5,8 C3.346,8 2,6.654 2,5 C2,3.346 3.346,2 5,2 C6.654,2 8,3.346 8,5 C8,6.654 6.654,8 5,8 M11.817,10.934 L8.318,7.435 C8.287,7.403 8.248,7.387 8.212,7.363 C8.701,6.7 9,5.888 9,5 C9,2.791 7.209,1 5,1 C2.791,1 1,2.791 1,5 C1,7.209 2.791,9 5,9 C5.888,9 6.7,8.701 7.363,8.212 C7.387,8.248 7.403,8.287 7.435,8.319 L10.934,11.818 C11.056,11.94 11.215,12.001 11.375,12.001 C11.536,12.001 11.695,11.94 11.817,11.818 C12.062,11.574 12.062,11.178 11.817,10.934" id="Fill-3" fill="#D1D5D7"></path></g></svg>');
