@@ -1,0 +1,69 @@
+@import 'common.scss';
+
+:host {
+  width: 100%;
+  display: inline-flex;
+  .slider {
+    height: 2px;
+    flex: 1 1 0%;
+    background-color: $colorUi3;
+    position: relative;
+    .connect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background-color: $colorBrand1;
+      z-index: 1;
+    }
+    .handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      border-radius: 100%;
+      border: 1px solid $colorBrand1;
+      background-color: $colorWhite;
+      z-index: 2;
+      transition: height $animationTimeBlink $animationFuncAlt, width $animationTimeBlink $animationFuncAlt;
+      &:hover, &.hover{
+        height: 16px;
+        width: 16px;
+        label {
+          top: 20px;
+        }
+      }
+      label {
+        user-select: none;
+        position: absolute;
+        top: 16px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 10px;
+        @include font('medium');
+        color: $colorType1;
+        transition: top $animationTimeBlink $animationFuncAlt;
+      }
+    }
+  }
+  &.disabled {
+    pointer-events: none;
+    .slider {
+      .connect {
+        display: none;
+      }
+      .handle {
+        border-color: $colorUi3;
+        background-color: $colorUi2;
+        label {
+          color: #BABABA;
+        }
+      }
+    }
+  }
+}

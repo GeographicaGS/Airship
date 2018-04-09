@@ -35,5 +35,25 @@
 <ash-switch checked class="disabled"></ash-switch>
 
 <div style="width: 220px;display: inline-flex;">
-  <ash-range></ash-range>
+  <ash-range
+    [min]="100"
+    [max]="500"
+    [(values)]="rageValues"
+    (valueChange)="valueRageChange($event)"
+  ></ash-range>
+</div>
+<div style="width: 220px;display: inline-flex; margin-left: 20px;">
+  <ash-range
+    [min]="100"
+    [max]="500"
+    [values]="rageValue"
+  ></ash-range>
+</div>
+<div style="width: 220px;display: inline-flex;">
+  <ash-range class="disabled"
+    [min]="100"
+    [max]="500"
+    [(values)]="rageValue"
+    (valueChange)="valueRageChange($event)"
+  ></ash-range>
 </div>

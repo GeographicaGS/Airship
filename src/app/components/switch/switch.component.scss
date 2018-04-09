@@ -67,7 +67,6 @@
       input ~ .slider, input:checked ~ .slider{
         background-color: $colorUi2;
         border: 1px solid $colorUi3;
-        po
         &:before {
           background-color: $colorUi4;
         }
