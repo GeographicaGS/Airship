@@ -1,1 +1,11 @@
-<button class="{{classes}}">awdadw</button>
+<button class="{{class}}">
+  <span class="text">
+    <img class="icon" *ngIf="icon" src="{{icon}}">
+    <ng-content></ng-content>
+  </span>
+  <span class="loadingAnimation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</button>

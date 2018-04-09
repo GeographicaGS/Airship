@@ -1,0 +1,79 @@
+@import 'common.scss';
+
+:host {
+  .switch {
+    position: relative;
+    display: inline-flex;
+    width: var(--switch-width, 32px);
+    height: var(--switch-height, 16px);
+    input {
+      display:none;
+      &:checked{
+        & ~ .slider {
+          &:not(:hover) {
+            background-color: $colorBrand1;
+          }
+          &:before {
+            left: calc(100% - calc(var(--switch-height, 16px) - 4px) - 2px);
+          }
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .slider {
+    flex: 1 1 0%;
+    position: relative;
+    cursor: pointer;
+    background-color: $colorUi4;
+    transition: background-color $animationTimeBlink $animationFuncAlt;
+    border-radius: calc(var(--switch-height, 16px) / 2);
+    &:before, &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+    }
+    &:after {
+      content: '';
+      left: 4px;
+      width: calc(var(--switch-height, 16px) - 6px);
+      height: calc(var(--switch-height, 16px) - 6px);
+      background-image:url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2210px%22%20height%3D%2210px%22%20viewBox%3D%220%200%2010%2010%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20transform%3D%22translate(0.000000%2C%201.000000)%22%20fill%3D%22%23FFF%22%3E%3Cpath%20d%3D%22M3.31475766%2C7.8585%20L0.132953941%2C4.4415%20C-0.0443179804%2C4.2535%20-0.0443179804%2C3.9475%200.132953941%2C3.7575%20L0.775678292%2C3.0745%20C0.952950214%2C2.8865%201.24113072%2C2.8865%201.41840264%2C3.0745%20L3.63657438%2C5.4665%20L8.58109736%2C0.1415%20C8.75836928%2C-0.0465%209.04654979%2C-0.0465%209.22382171%2C0.1415%20L9.86654606%2C0.8255%20C10.043818%2C1.0135%2010.043818%2C1.3205%209.86654606%2C1.5075%20L3.95748201%2C7.8585%20C3.78021009%2C8.0465%203.49202958%2C8.0465%203.31475766%2C7.8585%22%20id%3D%22Page-1%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      transition: opacity $animationTimeBlink $animationFuncAlt;
+    }
+    &:before {
+      content: '';
+      border-radius: 100%;
+      left: 2px;
+      height: calc(var(--switch-height, 16px) - 4px);
+      width: calc(var(--switch-height, 16px) - 4px);
+      background-color: $colorWhite;
+      transition: left $animationTimeBlink $animationFuncAlt;
+    }
+    &:hover {
+      background-color: $colorBrand3;
+    }
+  }
+  &.disabled {
+    pointer-events: none;
+    .switch {
+      input ~ .slider, input:checked ~ .slider{
+        background-color: $colorUi2;
+        border: 1px solid $colorUi3;
+        &:before {
+          background-color: $colorUi4;
+        }
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
