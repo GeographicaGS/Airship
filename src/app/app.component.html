@@ -34,6 +34,10 @@
 <ash-switch checked></ash-switch>
 <ash-switch checked class="disabled"></ash-switch>
 
+<div style="width: 220px;display: inline-flex; margin-right: 20px;">
+  <ash-range></ash-range>
+</div>
+
 <div style="width: 220px;display: inline-flex;">
   <ash-range
     [min]="100"
@@ -51,10 +55,5 @@
   ></ash-range>
 </div>
 <div style="width: 220px;display: inline-flex;">
-  <ash-range class="disabled"
-    [min]="100"
-    [max]="500"
-    [(values)]="rageValue"
-    (valueChange)="valueRageChange($event)"
-  ></ash-range>
+  <ash-range class="disabled"></ash-range>
 </div>

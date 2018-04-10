@@ -10,22 +10,17 @@ export class RangeComponent implements OnInit {
   @Input() min = 100;
   @Input() max = 200;
   @Input() parseFunction: any;
-  _values = [100, 200];
+  _values: Array<number>;
   @Input() get values() {
     return this._values;
   }
   set values(values) {
     this._values = values;
-    this.handlesValues = [];
-    for (const v of this._values) {
-      this.handlesValues.push(
-        (((v - this.min) * 100) / (this.max - this.min))
-      );
-    }
-    this.resizeConnect();
+    this.init();
   }
   currentHandleIndex: number = null;
   handlesValues = [];
+  handlesZindex = [];
 
   @ViewChild('slider') slider;
   @ViewChild('connect') connect;
@@ -39,6 +34,10 @@ export class RangeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.values) {
+      this._values = [this.min, this.max];
+      this.init();
+    }
   }
 
   dragStart(e) {
@@ -48,6 +47,7 @@ export class RangeComponent implements OnInit {
   }
 
   dragEnd() {
+    this.calculateHandlesZindexs(this.currentHandleIndex);
     this.currentHandleIndex = null;
     window.removeEventListener('mousemove', this._drag);
     window.removeEventListener('mouseup', this._dragEnd);
@@ -55,7 +55,7 @@ export class RangeComponent implements OnInit {
   }
 
   drag(e) {
-    const offsetLeft = this.slider.nativeElement.offsetLeft,
+    const offsetLeft = this.slider.nativeElement.offsetLeft + 7, // Seven is the width of handle,
       totalWidth = this.slider.nativeElement.offsetWidth;
 
     let value, percentage;
@@ -92,6 +92,32 @@ export class RangeComponent implements OnInit {
       this.values[this.currentHandleIndex] = value.toString().split('.').length > 1 ? parseFloat(value.toFixed(2)) : value;
     }
     this.resizeConnect();
+  }
+
+  private init() {
+    this.calculateHandles();
+    this.resizeConnect();
+    this.calculateHandlesZindexs();
+  }
+
+  private calculateHandles() {
+    this.handlesValues = [];
+    for (const v of this._values) {
+      this.handlesValues.push(
+        (((v - this.min) * 100) / (this.max - this.min))
+      );
+    }
+  }
+
+  private calculateHandlesZindexs(index: number = null) {
+    this.handlesZindex = [];
+    const initZindex = 2;
+    for (let i = 0; i < this.values.length; i++) {
+      this.handlesZindex[i] = i + initZindex;
+    }
+    if (index !== null) {
+      this.handlesZindex[index] = this.handlesZindex.length + initZindex;
+    }
   }
 
   private resizeConnect() {
