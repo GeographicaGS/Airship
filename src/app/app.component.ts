@@ -9,6 +9,12 @@ export class AppComponent implements OnInit {
 
   rageValues = [100, 500];
   rageValue = [200];
+  rageParseFunction = (value) => {
+    if (value === 500) {
+      return `Above ${500}`;
+    }
+    return value;
+  }
 
   ngOnInit() {
   }

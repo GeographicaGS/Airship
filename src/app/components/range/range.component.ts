@@ -9,6 +9,7 @@ export class RangeComponent implements OnInit {
 
   @Input() min = 100;
   @Input() max = 200;
+  @Input() parseFunction: any;
   _values = [100, 200];
   @Input() get values() {
     return this._values;
@@ -100,5 +101,12 @@ export class RangeComponent implements OnInit {
     } else {
       this.connect.nativeElement.style.width = `${this.handlesValues[this.handlesValues.length - 1]}%`;
     }
+  }
+
+  private parse(value) {
+    if (this.parseFunction) {
+      return this.parseFunction(value);
+    }
+    return value;
   }
 }

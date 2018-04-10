@@ -1,6 +1,6 @@
 <div class="slider" #slider>
   <div class="connect" #connect></div>
   <div *ngFor="let v of values; let i = index" [attr.index]="i" class="handle" (mousedown)="dragStart($event)" [ngStyle]="{'left': this.handlesValues[i] + '%'}">
-    <label>{{values[i]}}</label>
+    <label>{{parse(values[i])}}</label>
   </div>
 </div>

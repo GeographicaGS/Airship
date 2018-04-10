@@ -39,6 +39,7 @@
         font-size: 10px;
         @include font('medium');
         color: $colorType1;
+        white-space: nowrap;
       }
     }
   }
