@@ -16,10 +16,16 @@ export class AppComponent implements OnInit {
     return value;
   }
 
+
+
   ngOnInit() {
   }
 
   valueRageChange(values) {
     console.log(values);
+  }
+
+  valueRangeChange(value) {
+    console.log(value);
   }
 }

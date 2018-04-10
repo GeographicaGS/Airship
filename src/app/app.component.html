@@ -57,3 +57,11 @@
 <div style="width: 220px;display: inline-flex;">
   <ash-range class="disabled"></ash-range>
 </div>
+
+<div style="width:280px; margin-top: 40px;">
+  <ash-pager
+    [value]="2"
+    pageNumber="4"
+    (valueChange)="valueRangeChange($event)"
+  ></ash-pager>
+</div>
