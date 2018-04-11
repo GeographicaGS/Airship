@@ -28,6 +28,14 @@
       border: 1px solid $colorBrand1;
       background-color: $colorWhite;
       z-index: 2;
+      transition: width $animationTimeBlink $animationFuncAlt, height $animationTimeBlink $animationFuncAlt;
+      &:hover, &.hover {
+        width: 16px;
+        height: 16px;
+        label {
+          top: 20px;
+        }
+      }
       label {
         user-select: none;
         position: absolute;
@@ -40,6 +48,7 @@
         @include font('medium');
         color: $colorType1;
         white-space: nowrap;
+        transition: top $animationTimeBlink $animationFuncAlt
       }
     }
   }
