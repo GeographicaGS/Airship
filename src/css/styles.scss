@@ -2,6 +2,7 @@
 @import './reset.scss';
 @import './common.scss';
 
+@import '~tiny-date-picker/tiny-date-picker.min.css';
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -117,6 +118,23 @@ body {
       padding-left: 30px;
       &:focus {
         background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M5%2C8%20C3.346%2C8%202%2C6.654%202%2C5%20C2%2C3.346%203.346%2C2%205%2C2%20C6.654%2C2%208%2C3.346%208%2C5%20C8%2C6.654%206.654%2C8%205%2C8%20M11.817%2C10.934%20L8.318%2C7.435%20C8.287%2C7.403%208.248%2C7.387%208.212%2C7.363%20C8.701%2C6.7%209%2C5.888%209%2C5%20C9%2C2.791%207.209%2C1%205%2C1%20C2.791%2C1%201%2C2.791%201%2C5%20C1%2C7.209%202.791%2C9%205%2C9%20C5.888%2C9%206.7%2C8.701%207.363%2C8.212%20C7.387%2C8.248%207.403%2C8.287%207.435%2C8.319%20L10.934%2C11.818%20C11.056%2C11.94%2011.215%2C12.001%2011.375%2C12.001%20C11.536%2C12.001%2011.695%2C11.94%2011.817%2C11.818%20C12.062%2C11.574%2012.062%2C11.178%2011.817%2C10.934%22%20id%3D%22Fill-3%22%20fill%3D%22%231785FB%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+      }
+    }
+  }
+
+  .dp-permanent, .dp-below {
+    height: 240px;
+    width: 232px;
+    header, footer{
+      display: none;
+    }
+    .dp {
+      border-radius: 4px;
+      border: none;
+      background-color: $colorWhite;
+      box-shadow: 0 2px 8px 0 rgba(44,44,44,0.16);
+      .dp-cal {
+        min-height: inherit;
       }
     }
   }
