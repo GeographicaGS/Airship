@@ -9,7 +9,7 @@ export class RangeComponent implements OnInit {
 
   @Input() min = 100;
   @Input() max = 200;
-  @Input() parseFunction: any;
+  @Input() labelFunction: any;
   _values: Array<number>;
   @Input() get values() {
     return this._values;
@@ -47,7 +47,7 @@ export class RangeComponent implements OnInit {
   }
 
   dragEnd() {
-    this.calculateHandlesZindexs(this.currentHandleIndex);
+    this.calculateHandlesZindex(this.currentHandleIndex);
     this.currentHandleIndex = null;
     window.removeEventListener('mousemove', this._drag);
     window.removeEventListener('mouseup', this._dragEnd);
@@ -95,12 +95,12 @@ export class RangeComponent implements OnInit {
   }
 
   private init() {
-    this.calculateHandles();
+    this.calculateHandlesValue();
     this.resizeConnect();
-    this.calculateHandlesZindexs();
+    this.calculateHandlesZindex();
   }
 
-  private calculateHandles() {
+  private calculateHandlesValue() {
     this.handlesValues = [];
     for (const v of this._values) {
       this.handlesValues.push(
@@ -109,7 +109,7 @@ export class RangeComponent implements OnInit {
     }
   }
 
-  private calculateHandlesZindexs(index: number = null) {
+  private calculateHandlesZindex(index: number = null) {
     this.handlesZindex = [];
     const initZindex = 2;
     for (let i = 0; i < this.values.length; i++) {
@@ -129,9 +129,9 @@ export class RangeComponent implements OnInit {
     }
   }
 
-  private parse(value) {
-    if (this.parseFunction) {
-      return this.parseFunction(value);
+  private parse(value, index) {
+    if (this.labelFunction) {
+      return this.labelFunction(value, index);
     }
     return value;
   }
