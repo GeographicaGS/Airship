@@ -33,13 +33,15 @@
         width: 16px;
         height: 16px;
         label {
-          top: 20px;
+          padding-top: 20px;
         }
       }
       label {
         user-select: none;
         position: absolute;
-        top: 16px;
+        // top: 16px;
+        padding-top: 16px;
+        top: 0;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -48,7 +50,7 @@
         @include font('medium');
         color: $colorType1;
         white-space: nowrap;
-        transition: top $animationTimeBlink $animationFuncAlt
+        transition: padding-top $animationTimeBlink $animationFuncAlt
       }
     }
   }
