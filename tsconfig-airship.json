@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "outDir": "./airship",
+    "lib": ["es2015", "dom"]
+  },
+  "files": [
+    "./inline-airship/airship.module.ts"
+  ],
+  "angularCompilerOptions": {
+    "enableResourceInlining": true,
+    "skipTemplateCodegen": true
+  }
+}

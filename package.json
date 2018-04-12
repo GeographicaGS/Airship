@@ -2,13 +2,19 @@
   "name": "airship",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "airship.bundle.js",
+  "module": "airship.module.js",
+  "jsnext:main": "airship.module.js",
+  "types": "airship.module.d.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "inline-airship": "gulp inline-airship",
+    "build-airship": "rm -rf airship && rm -rf inline-airship && npm run inline-airship && ngc -p ./tsconfig-airship.json && cp package.json airship && rm -rf inline-airship"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +28,9 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
+    "gulp": "^3.9.1",
+    "gulp-inline-ng2-template": "^4.1.0",
+    "node-sass": "^4.8.3",
     "rxjs": "^5.5.6",
     "tiny-date-picker": "3.2.4",
     "zone.js": "^0.8.19"

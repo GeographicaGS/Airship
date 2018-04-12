@@ -1,0 +1,76 @@
+@import 'common.scss';
+
+:host {
+  button {
+    &.loading {
+      .text {
+        opacity: 0;
+      }
+      .loadingAnimation {
+        display: flex;
+      }
+    }
+    .text {
+      display: flex;
+      align-items: center;
+      .icon {
+        margin-right: 12px;
+      }
+      &::ng-deep {
+        img:not(.icon) {
+          position: absolute;
+          margin-left: auto;
+          margin-right: auto;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+    .loadingAnimation {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      align-items: center;
+      justify-content: center;
+      span {
+        width: 4px;
+        height: 4px;
+        background-color: $colorWhite;
+        border-radius: 100%;
+        opacity: .2;
+        animation-name: loadingButton;
+        animation-duration: .7s;
+        animation-iteration-count: infinite;
+        &+span {
+          margin-left: 4px;
+        }
+        &:nth-child(1) {
+          animation-delay: 100ms;
+        }
+        &:nth-child(2) {
+          animation-delay: 200ms;
+        }
+        &:nth-child(3) {
+          animation-delay: 300ms;
+        }
+      }
+    }
+    @keyframes loadingButton {
+      0% {
+        opacity: .2;
+        transform: scale3d(1, 1, 1)
+      }
+      50% {
+        opacity: .6;
+        transform: scale3d(1.4, 1.4, 1)
+      }
+      100% {
+        opacity: .2;
+        transform: scale3d(1, 1, 1)
+      }
+    }
+  }
+}

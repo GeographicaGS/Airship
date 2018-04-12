@@ -1,0 +1,30 @@
+@import 'common.scss';
+
+:host {
+  .rangeContainer {
+    position: relative;
+    display: flex;
+    >input[type="text"] {
+      flex: 1 1 100%;
+    }
+    >div{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: background-color $animationTimeFast $animationFuncAlt;
+      &.above {
+        transform: translateY(-100%);
+      }
+      &.showRange {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}

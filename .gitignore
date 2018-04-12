@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/airship
 /dist-server
 /tmp
 /out-tsc
