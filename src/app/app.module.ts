@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -7,6 +8,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { RangeComponent } from './components/range/range.component';
+import { PagerComponent } from './pager/pager.component';
 
 
 @NgModule({
@@ -15,10 +17,12 @@ import { RangeComponent } from './components/range/range.component';
     ButtonComponent,
     CheckboxComponent,
     SwitchComponent,
-    RangeComponent
+    RangeComponent,
+    PagerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
