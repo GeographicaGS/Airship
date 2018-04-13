@@ -15,7 +15,7 @@
     "e2e": "ng e2e",
     "inline-airship": "gulp inline-airship",
     "process-style": "gulp process-style",
-    "build-airship": "rm -rf airship && rm -rf inline-airship && npm run inline-airship && ngc -p ./tsconfig-airship.json && cp package.json airship && npm run process-style && rm -rf inline-airship"
+    "build-airship": "rm -rf inline-airship && npm run inline-airship && ngc -p ./tsconfig-airship.json && cp package.json airship && npm run process-style && rm -rf inline-airship"
   },
   "private": true,
   "dependencies": {
