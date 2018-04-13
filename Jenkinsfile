@@ -23,8 +23,7 @@ pipeline {
       }
       steps {
         sh "docker run -i --rm  -v \$(pwd)/airship:/usr/src/app/airship geographica/airship_www npm run build-airship"
-
-        sh "docker run --rm -i -v \$(pwd)/airship:/usr/src/app  -e \"NPM_TOKEN=${NPM_TOKEN}\" geographica/airship_www echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc &&  npm publish --access=public"
+        sh "docker run --rm -i -v \$(pwd)/airship:/usr/src/app  -e \"NPM_TOKEN=${NPM_TOKEN}\" geographica/airship_www echo \"//registry.npmjs.org/:_authToken=$NPM_TOKEN\" > ~/.npmrc &&  npm publish --access=public"
       }
       post {
        failure {
