@@ -1,6 +1,6 @@
 {
   "name": "@geographica/airship",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "airship.bundle.js",
   "module": "airship.module.js",
@@ -17,7 +17,6 @@
     "process-style": "gulp process-style",
     "build-airship": "rm -rf inline-airship && npm run inline-airship && ngc -p ./tsconfig-airship.json && cp package.json airship && npm run process-style && rm -rf inline-airship"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
