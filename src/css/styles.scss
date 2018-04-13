@@ -2,6 +2,7 @@
 @import './reset.scss';
 @import './common.scss';
 
+@import '~tiny-date-picker/tiny-date-picker.min.css';
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -72,6 +73,7 @@ body {
   }
 
   input[type="text"] {
+    font-family: $fontFamily;
     height: 30px;
     color: $colorType1;
     font-size: 12px;
@@ -97,7 +99,7 @@ body {
     }
     &:focus {
       // &:not(.error),
-      &:not(.error):not(:read-only):not(.readonly) {
+      &:not(.error):not(:read-only):not(.readonly), &.date {
         border-color: $colorBrand1;
         box-shadow: inset 0 0 0 1px $colorBrand1;
       }
@@ -106,18 +108,221 @@ body {
       border: 1px solid $colorSupport1;
       background-color: rgba(243,82,43,0.08);
     }
-    &.readonly, &:read-only {
+    &.readonly:not(.date), &:read-only:not(.date) {
       background-color: $colorUi2;
       border: 1px solid $colorUi3;
     }
-    &.search {
-      background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M5%2C8%20C3.346%2C8%202%2C6.654%202%2C5%20C2%2C3.346%203.346%2C2%205%2C2%20C6.654%2C2%208%2C3.346%208%2C5%20C8%2C6.654%206.654%2C8%205%2C8%20M11.817%2C10.934%20L8.318%2C7.435%20C8.287%2C7.403%208.248%2C7.387%208.212%2C7.363%20C8.701%2C6.7%209%2C5.888%209%2C5%20C9%2C2.791%207.209%2C1%205%2C1%20C2.791%2C1%201%2C2.791%201%2C5%20C1%2C7.209%202.791%2C9%205%2C9%20C5.888%2C9%206.7%2C8.701%207.363%2C8.212%20C7.387%2C8.248%207.403%2C8.287%207.435%2C8.319%20L10.934%2C11.818%20C11.056%2C11.94%2011.215%2C12.001%2011.375%2C12.001%20C11.536%2C12.001%2011.695%2C11.94%2011.817%2C11.818%20C12.062%2C11.574%2012.062%2C11.178%2011.817%2C10.934%22%20id%3D%22Fill-3%22%20fill%3D%22%23D1D5D7%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+    &.search, &.date {
       background-repeat: no-repeat;
       background-position: 10px center;
       padding-left: 30px;
+    }
+    &.search {
+      background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M5%2C8%20C3.346%2C8%202%2C6.654%202%2C5%20C2%2C3.346%203.346%2C2%205%2C2%20C6.654%2C2%208%2C3.346%208%2C5%20C8%2C6.654%206.654%2C8%205%2C8%20M11.817%2C10.934%20L8.318%2C7.435%20C8.287%2C7.403%208.248%2C7.387%208.212%2C7.363%20C8.701%2C6.7%209%2C5.888%209%2C5%20C9%2C2.791%207.209%2C1%205%2C1%20C2.791%2C1%201%2C2.791%201%2C5%20C1%2C7.209%202.791%2C9%205%2C9%20C5.888%2C9%206.7%2C8.701%207.363%2C8.212%20C7.387%2C8.248%207.403%2C8.287%207.435%2C8.319%20L10.934%2C11.818%20C11.056%2C11.94%2011.215%2C12.001%2011.375%2C12.001%20C11.536%2C12.001%2011.695%2C11.94%2011.817%2C11.818%20C12.062%2C11.574%2012.062%2C11.178%2011.817%2C10.934%22%20id%3D%22Fill-3%22%20fill%3D%22%23D1D5D7%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E');
       &:focus {
         background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M5%2C8%20C3.346%2C8%202%2C6.654%202%2C5%20C2%2C3.346%203.346%2C2%205%2C2%20C6.654%2C2%208%2C3.346%208%2C5%20C8%2C6.654%206.654%2C8%205%2C8%20M11.817%2C10.934%20L8.318%2C7.435%20C8.287%2C7.403%208.248%2C7.387%208.212%2C7.363%20C8.701%2C6.7%209%2C5.888%209%2C5%20C9%2C2.791%207.209%2C1%205%2C1%20C2.791%2C1%201%2C2.791%201%2C5%20C1%2C7.209%202.791%2C9%205%2C9%20C5.888%2C9%206.7%2C8.701%207.363%2C8.212%20C7.387%2C8.248%207.403%2C8.287%207.435%2C8.319%20L10.934%2C11.818%20C11.056%2C11.94%2011.215%2C12.001%2011.375%2C12.001%20C11.536%2C12.001%2011.695%2C11.94%2011.817%2C11.818%20C12.062%2C11.574%2012.062%2C11.178%2011.817%2C10.934%22%20id%3D%22Fill-3%22%20fill%3D%22%231785FB%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E');
       }
     }
+    &.date {
+      background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M11%2C3%20L1%2C3%20L1%2C2%20L2%2C2%20C2%2C2.276%202.224%2C2.5%202.5%2C2.5%20C2.776%2C2.5%203%2C2.276%203%2C2%20L9%2C2%20C9%2C2.276%209.224%2C2.5%209.5%2C2.5%20C9.776%2C2.5%2010%2C2.276%2010%2C2%20L11%2C2%20L11%2C3%20Z%20M1%2C11%20L11%2C11%20L11%2C4%20L1%2C4%20L1%2C11%20Z%20M11.625%2C1%20L10%2C1%20L10%2C0.5%20C10%2C0.224%209.776%2C0%209.5%2C0%20C9.224%2C0%209%2C0.224%209%2C0.5%20L9%2C1%20L3%2C1%20L3%2C0.5%20C3%2C0.224%202.776%2C0%202.5%2C0%20C2.224%2C0%202%2C0.224%202%2C0.5%20L2%2C1%20L0.375%2C1%20C0.168%2C1%200%2C1.168%200%2C1.375%20L0%2C11.625%20C0%2C11.832%200.168%2C12%200.375%2C12%20L11.625%2C12%20C11.832%2C12%2012%2C11.832%2012%2C11.625%20L12%2C1.375%20C12%2C1.168%2011.832%2C1%2011.625%2C1%20Z%22%20fill%3D%22%23D1D5D7%22%3E%3C%2Fpath%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%228%206%2010%206%2010%205%208%205%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%225%206%207%206%207%205%205%205%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%222%206%204%206%204%205%202%205%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%228%208%2010%208%2010%207%208%207%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%225%208%207%208%207%207%205%207%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%222%208%204%208%204%207%202%207%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%225%2010%207%2010%207%209%205%209%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%23D1D5D7%22%20points%3D%222%2010%204%2010%204%209%202%209%22%3E%3C%2Fpolygon%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+      &:focus {
+        background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cpath%20d%3D%22M11%2C3%20L1%2C3%20L1%2C2%20L2%2C2%20C2%2C2.276%202.224%2C2.5%202.5%2C2.5%20C2.776%2C2.5%203%2C2.276%203%2C2%20L9%2C2%20C9%2C2.276%209.224%2C2.5%209.5%2C2.5%20C9.776%2C2.5%2010%2C2.276%2010%2C2%20L11%2C2%20L11%2C3%20Z%20M1%2C11%20L11%2C11%20L11%2C4%20L1%2C4%20L1%2C11%20Z%20M11.625%2C1%20L10%2C1%20L10%2C0.5%20C10%2C0.224%209.776%2C0%209.5%2C0%20C9.224%2C0%209%2C0.224%209%2C0.5%20L9%2C1%20L3%2C1%20L3%2C0.5%20C3%2C0.224%202.776%2C0%202.5%2C0%20C2.224%2C0%202%2C0.224%202%2C0.5%20L2%2C1%20L0.375%2C1%20C0.168%2C1%200%2C1.168%200%2C1.375%20L0%2C11.625%20C0%2C11.832%200.168%2C12%200.375%2C12%20L11.625%2C12%20C11.832%2C12%2012%2C11.832%2012%2C11.625%20L12%2C1.375%20C12%2C1.168%2011.832%2C1%2011.625%2C1%20Z%22%20fill%3D%22%231785FB%22%3E%3C%2Fpath%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%228%206%2010%206%2010%205%208%205%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%225%206%207%206%207%205%205%205%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%222%206%204%206%204%205%202%205%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%228%208%2010%208%2010%207%208%207%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%225%208%207%208%207%207%205%207%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%222%208%204%208%204%207%202%207%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%225%2010%207%2010%207%209%205%209%22%3E%3C%2Fpolygon%3E%3Cpolygon%20fill%3D%22%231785FB%22%20points%3D%222%2010%204%2010%204%209%202%209%22%3E%3C%2Fpolygon%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+      }
+    }
+  }
+
+  .dp-permanent, .dp-below {
+    button {
+      min-width: 0;
+    }
+    height: 240px;
+    width: 232px;
+    header {
+      background: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4px;
+      button {
+        padding: 0;
+      }
+      .dp-cal-month, .dp-cal-year, .dp-next, .dp-prev {
+        &:hover {
+          background-color: $colorUi2;
+        }
+      }
+      .dp-cal-month, .dp-cal-year {
+        font-size: 12px;
+        @include font('medium');
+        color: $colorBrand1;
+        height: auto;
+        padding: 0 12px;
+      }
+      .dp-next, .dp-prev {
+        font-size: 0;
+        position: relative;
+        top: -1px;
+        &:before{
+          margin: 0;
+          border: none;
+          width: 32px;
+          height: 32px;
+          background-repeat: no-repeat;
+          background-position: center;
+          transform: none;
+        }
+      }
+      .dp-next {
+        margin-left: auto;
+        right: 0;
+        &:before {
+          background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%20%20%20%20%20%20%3Cpolyline%20id%3D%22Path-4%22%20stroke%3D%22%231785FB%22%20transform%3D%22translate(6.000000%2C%206.000000)%20scale(1%2C%20-1)%20rotate(-90.000000)%20translate(-6.000000%2C%20-6.000000)%20%22%20points%3D%221%204%206%208%2011%204%22%3E%3C%2Fpolyline%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');
+        }
+      }
+      .dp-prev {
+        margin-right: auto;
+        left: 0;
+        &:before{
+          background-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%2212px%22%20height%3D%2212px%22%20viewBox%3D%220%200%2012%2012%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%20%20%20%20%20%20%3Cpolyline%20id%3D%22Path-4%22%20stroke%3D%22%231785FB%22%20transform%3D%22translate(6.000000%2C%206.000000)%20scale(1%2C%20-1)%20rotate(-270.000000)%20translate(-6.000000%2C%20-6.000000)%20%22%20points%3D%221%204%206%208%2011%204%22%3E%3C%2Fpolyline%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');
+        }
+      }
+    }
+    footer {
+      display: none;
+    }
+    .dp {
+      border-radius: 4px;
+      border: none;
+      background-color: $colorWhite;
+      box-shadow: 0 2px 8px 0 rgba(44,44,44,0.16);
+      padding: 20px 18px 16px 18px;
+      &:before{
+        display: none;
+      }
+      .dp-cal {
+        min-height: inherit;
+        .dp-days {
+          // padding: 20px 18px 16px 18px;
+          .dp-col-header, .dp-day {
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            margin: 0 2px;
+            @include font('medium');
+          }
+          .dp-col-header {
+            font-size: 10px;
+            color: $colorType2;
+            margin-bottom: 4px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .dp-day {
+            margin-top: 4px;
+            font-size: 12px;
+            color: $colorBrand1;
+            background-color:#F9F9F9;
+            &.dp-selected, &.dr-selected {
+              color: $colorWhite;
+              background: transparent;
+              background-color: rgba(#2C2C2C, 0.4);
+              position: relative;
+              border-radius: 0;
+              &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: -1;
+                border-radius: 4px;
+                background-color: $colorBrand1;
+                border-radius: 0;
+              }
+            }
+            &.dr-selected {
+              margin-right: 0;
+              border-radius: 4px 0 0 4px;
+              &:before {
+                border-radius: 4px 0 0 4px;
+              }
+            }
+            &.dr-in-range {
+              &:not(.dp-selected):not(.dr-selected) {
+                background-color: $colorBrand1;
+                color: $colorWhite;
+              }
+              & +.dr-selected {
+                border-radius: 0 4px 4px 0;
+                &:before {
+                  border-radius: 0 4px 4px 0;
+                }
+              }
+
+              margin-left: 0;
+              margin-right: 0;
+              width: 28px;
+              border-radius: 0;
+            }
+            &.dp-edge-day{
+              color: $colorType3;
+              background-color: transparent;
+            }
+            &.dp-day-today{
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      .dp-months, .dp-years {
+        display: grid;
+        grid-column-gap: 8px;
+        grid-row-gap: 8px;
+        padding: 0;
+        button {
+          width: auto;
+          padding: 0 12px;
+          font-size: 12px;
+          @include font('medium');
+          color: $colorBrand1;
+          text-transform: uppercase;
+          background-color:#F9F9F9;
+          &.dp-current {
+            color: $colorWhite;
+            background-color: rgba(#2C2C2C, 0.4);
+            position: relative;
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              z-index: -1;
+              border-radius: 4px;
+              background-color: $colorBrand1;
+            }
+          }
+        }
+      }
+      .dp-years {
+        height: 232px;
+        grid-template-columns: repeat(3, auto);
+        button {
+          margin: 0 auto;
+          padding: 0 16px;
+        }
+      }
+      .dp-months {
+        grid-template-columns: repeat(2, auto);
+      }
+    }
+  }
+  .dr-cal-end{
+    display: none;
   }
 }

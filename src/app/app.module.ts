@@ -9,6 +9,7 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { RangeComponent } from './components/range/range.component';
 import { PagerComponent } from './pager/pager.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PagerComponent } from './pager/pager.component';
     CheckboxComponent,
     SwitchComponent,
     RangeComponent,
-    PagerComponent
+    PagerComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,

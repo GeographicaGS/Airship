@@ -65,3 +65,16 @@
     (valueChange)="valueRangeChange($event)"
   ></ash-pager>
 </div>
+
+<div style="margin-top: 40px;margin-left: 40px; display:flex;">
+  <ash-date-picker
+  [(value)]="datePickerValue"
+  (valueChange)="valueDatePickerChange($event)"
+  ></ash-date-picker>
+
+  <ash-date-picker style="margin-left: 40px; width: 200px"
+  mode="range"
+  [(value)]="dateRangeValue"
+  >
+  </ash-date-picker>
+</div>
