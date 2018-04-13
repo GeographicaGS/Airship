@@ -28,7 +28,7 @@ pipeline {
       }
       post {
        failure {
-         //echo "Pipeline is done"
+         echo "Pipeline is done"
          // notify users when the Pipeline fails
          //mail to: 'build@geographica.gs',
          //subject: "Failed Real Madrid ${env.BRANCH_NAME}: ${currentBuild.fullDisplayName}",
