@@ -2,7 +2,7 @@
 @import './reset.scss';
 @import './common.scss';
 
-@import '~tiny-date-picker/tiny-date-picker.min.css';
+@import url(~tiny-date-picker/tiny-date-picker.min.css);
 
 body {
   -webkit-font-smoothing: antialiased;
