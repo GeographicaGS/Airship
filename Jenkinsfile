@@ -23,7 +23,7 @@ pipeline {
           }
       }
       steps {
-        sh "docker run -i --rm  -v \$(pwd)/dist:/usr/src/app/dist geographica/airship_www ng build -op dist/dist --locale es && npm run compodoc"
+        sh "docker run -i --rm  -v \$(pwd)/dist:/usr/src/app/dist geographica/airship_www ng build -op dist/dist --locale es && npm run doc"
         sh "cp deploy_demo/s3_website.yml s3_website.yml"
         sh "docker run --rm -i -v \$(pwd):/usr/src/app  -e \"S3_WEBSITE_ID=${CRED_USR}\" -e \"S3_WEBSITE_SECRET=${CRED_PSW}\" geographica/s3_website cfg apply"
         sh "docker run --rm -i -v \$(pwd):/usr/src/app  -e \"S3_WEBSITE_ID=${CRED_USR}\" -e \"S3_WEBSITE_SECRET=${CRED_PSW}\" geographica/s3_website push"

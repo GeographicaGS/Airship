@@ -13,7 +13,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "compodoc -p src/tsconfig.app.json -d dist/dist/doc",
+    "doc": "compodoc -p src/tsconfig.app.json -d dist/dist/doc",
+    "doc:buildandserve": "compodoc -p src/tsconfig.app.json -s",
     "inline-airship": "gulp inline-airship",
     "process-style": "gulp process-style",
     "build-airship": "rm -rf inline-airship && npm run inline-airship && ngc -p ./tsconfig-airship.json && cp package.json airship && npm run process-style && rm -rf inline-airship"
