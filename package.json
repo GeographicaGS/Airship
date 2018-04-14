@@ -13,6 +13,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "doc": "compodoc -p src/tsconfig.app.json -d dist/dist/doc",
+    "doc:buildandserve": "compodoc -p src/tsconfig.app.json -s -w",
     "inline-airship": "gulp inline-airship",
     "process-style": "gulp process-style",
     "build-airship": "rm -rf inline-airship && npm run inline-airship && ngc -p ./tsconfig-airship.json && cp package.json airship && npm run process-style && rm -rf inline-airship"
@@ -40,6 +42,7 @@
     "@angular/cli": "^1.7.3",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
+    "@compodoc/compodoc": "^1.1.2",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
