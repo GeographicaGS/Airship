@@ -11,6 +11,11 @@ pipeline {
 
   stages {
     stage('Building') {
+      when {
+          anyOf {
+              branch 'master';
+          }
+      }
       steps {
         sh "docker build --pull=true -t geographica/airship_www ."
       }
