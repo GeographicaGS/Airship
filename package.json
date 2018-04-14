@@ -13,7 +13,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "doc": "compodoc -p src/tsconfig.app.json -d dist/dist/doc",
+    "doc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d dist/dist/doc",
     "doc:buildandserve": "compodoc -p src/tsconfig.app.json -s -w",
     "inline-airship": "gulp inline-airship",
     "process-style": "gulp process-style",
