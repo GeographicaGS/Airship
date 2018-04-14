@@ -7,13 +7,32 @@ import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angu
 })
 export class RangeComponent implements OnInit {
 
+  /**
+  * Lower value
+  */
   @Input() min = 100;
+  /**
+  * Maximum value
+  */
   @Input() max = 200;
+  /**
+  * Function for parse labels handles.
+  * This function will have two parameters. The value of the function and an index corresponding to the handler
+  */
   @Input() labelFunction: any;
+  /**
+  * @ignore
+  */
   _values: Array<number>;
+  /**
+  * Array of values. The length of the array corresponds to the number of handlers
+  */
   @Input() get values() {
     return this._values;
   }
+  /**
+  * @ignore
+  */
   set values(values) {
     this._values = values;
     this.init();
@@ -25,6 +44,9 @@ export class RangeComponent implements OnInit {
   @ViewChild('slider') slider;
   @ViewChild('connect') connect;
 
+  /**
+  * Fuction will be fired when value changes
+  */
   @Output('valueChange') valueChange = new EventEmitter<Array<number>>();
 
   private _drag = this.drag.bind(this);
