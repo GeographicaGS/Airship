@@ -1,80 +1,92 @@
-<button class="primary">Primary</button>
-<button class="secondary">Secondary</button>
-<button>Base</button>
+<section>
+  <button class="primary">Primary</button>
+  <button class="secondary">Secondary</button>
+  <button>Base</button>
 
-<button class="primary disabled">Primary</button>
-<button class="secondary disabled">Secondary</button>
-<button class="disabled">Base</button>
+  <button class="primary disabled">Primary</button>
+  <button class="secondary disabled">Secondary</button>
+  <button class="disabled">Base</button>
 
-<button class="primary large">Primary</button>
-<button class="primary small">Primary</button>
+  <button class="primary large">Primary</button>
+  <button class="primary small">Primary</button>
+</section>
 
-<input type="text" placeholder="E.g. Placeholder text">
-<input type="text" value="Text entered">
-<input class="error" type="text" value="Text entered">
-<input readonly type="text" value="Text entered">
-<input class="search" type="text" placeholder="Search...">
+<section>
+  <ash-button class="primary">Componente botón</ash-button>
+  <ash-button class="primary loading">Componente botón</ash-button>
+  <ash-button class="primary" icon="/assets/plus.svg">Con icono</ash-button>
+  <ash-button icon="/assets/plus_blue.svg">Con icono sin fondo</ash-button>
+  <ash-button class="primary large"><img src="/assets/plus.svg"></ash-button>
+  <ash-button class="primary"><img src="/assets/plus.svg"></ash-button>
+  <ash-button class="primary small"><img src="/assets/plus.svg"></ash-button>
+</section>
+
+<section>
+  <input type="text" placeholder="E.g. Placeholder text">
+  <input type="text" value="Text entered">
+  <input class="error" type="text" value="Text entered">
+  <input readonly type="text" value="Text entered">
+  <input class="search" type="text" placeholder="Search...">
+</section>
+
+<section>
+  <ash-checkbox checked></ash-checkbox>
+  <ash-checkbox checked class="error"></ash-checkbox>
+  <ash-checkbox checked class="disabled"></ash-checkbox>
+  <ash-checkbox></ash-checkbox>
+  <ash-checkbox class="error"></ash-checkbox>
+  <ash-checkbox checked>checbox con texto</ash-checkbox>
+</section>
+
+<section>
+  <ash-switch></ash-switch>
+  <ash-switch checked></ash-switch>
+  <ash-switch checked class="disabled"></ash-switch>
+</section>
+
+<section>
+    <div style="flex: 0 0 200px"><ash-range></ash-range></div>
+     <div style="flex: 0 0 200px">
+      <ash-range
+        [min]="100"
+        [max]="500"
+        [(values)]="rageValues"
+        (valueChange)="valueRageChange($event)"
+        [labelFunction]="rageParseFunction"
+      ></ash-range>
+    </div>
+  <div style="flex: 0 0 200px;">
+      <ash-range
+        [min]="100"
+        [max]="500"
+        [values]="rageValue"
+      ></ash-range>
+    </div>
+    <div style="flex: 0 0 200px;">
+      <ash-range class="disabled"></ash-range>
+    </div>
+</section>
+
+<section>
+  <div style="flex: 0 0 200px;">
+    <ash-pager
+      [value]="2"
+      pageNumber="4"
+      (valueChange)="valueRangeChange($event)"
+    ></ash-pager>
+  </div>
+</section>
 
 
-<ash-button class="primary">Componente botón</ash-button>
-<ash-button class="primary loading">Componente botón</ash-button>
-<ash-button class="primary" icon="/assets/plus.svg">Con icono</ash-button>
-<ash-button class="primary large"><img src="/assets/plus.svg"></ash-button>
-<ash-button class="primary"><img src="/assets/plus.svg"></ash-button>
-<ash-button class="primary small"><img src="/assets/plus.svg"></ash-button>
-
-<ash-checkbox checked></ash-checkbox>
-<ash-checkbox checked class="error"></ash-checkbox>
-<ash-checkbox checked class="disabled"></ash-checkbox>
-<ash-checkbox></ash-checkbox>
-<ash-checkbox class="error"></ash-checkbox>
-<ash-checkbox checked>checbox con texto</ash-checkbox>
-
-<ash-switch></ash-switch>
-<ash-switch checked></ash-switch>
-<ash-switch checked class="disabled"></ash-switch>
-
-<div style="width: 220px;display: inline-flex; margin-right: 20px;">
-  <ash-range></ash-range>
-</div>
-
-<div style="width: 220px;display: inline-flex;">
-  <ash-range
-    [min]="100"
-    [max]="500"
-    [(values)]="rageValues"
-    (valueChange)="valueRageChange($event)"
-    [labelFunction]="rageParseFunction"
-  ></ash-range>
-</div>
-<div style="width: 220px;display: inline-flex; margin-left: 20px;">
-  <ash-range
-    [min]="100"
-    [max]="500"
-    [values]="rageValue"
-  ></ash-range>
-</div>
-<div style="width: 220px;display: inline-flex;">
-  <ash-range class="disabled"></ash-range>
-</div>
-
-<div style="width:280px; margin-top: 40px;">
-  <ash-pager
-    [value]="2"
-    pageNumber="4"
-    (valueChange)="valueRangeChange($event)"
-  ></ash-pager>
-</div>
-
-<div style="margin-top: 40px;margin-left: 40px; display:flex;">
+<section>
   <ash-date-picker
   [(value)]="datePickerValue"
   (valueChange)="valueDatePickerChange($event)"
   ></ash-date-picker>
 
-  <ash-date-picker style="margin-left: 40px; width: 200px"
+  <ash-date-picker style="width: 200px"
   mode="range"
   [(value)]="dateRangeValue"
   >
   </ash-date-picker>
-</div>
+</section>

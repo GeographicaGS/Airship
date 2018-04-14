@@ -1,1 +1,17 @@
 @import 'common.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    // flex-wrap: wrap;
+    margin-top: 40px;
+    >* + * {
+      margin-left: 40px;
+    }
+  }
+}
