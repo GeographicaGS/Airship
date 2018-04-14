@@ -16,6 +16,30 @@ pipeline {
       }
     }
 
+    stage("Deploy") {
+      when {
+          anyOf {
+              branch 'master';
+          }
+      }
+      steps {
+        sh "docker run -i --rm  -v \$(pwd)/dist:/usr/src/app/dist geographica/airship_www ng build -op dist/dist --locale es"
+        sh "cp deploy_demo/s3_website.yml s3_website.yml"
+        sh "docker run --rm -i -v \$(pwd):/usr/src/app  -e \"S3_WEBSITE_ID=${CRED_USR}\" -e \"S3_WEBSITE_SECRET=${CRED_PSW}\" geographica/s3_website cfg apply"
+        sh "docker run --rm -i -v \$(pwd):/usr/src/app  -e \"S3_WEBSITE_ID=${CRED_USR}\" -e \"S3_WEBSITE_SECRET=${CRED_PSW}\" geographica/s3_website push"
+        sh "rm s3_website.yml"
+      }
+      post {
+       failure {
+         echo "Pipeline is done"
+         // notify users when the Pipeline fails
+         mail to: 'build@geographica.gs',
+         subject: "Failed Airship: ${currentBuild.fullDisplayName}",
+         body: "Something is wrong"
+       }
+     }
+    }
+
     stage("publish") {
       when {
           anyOf {
@@ -27,31 +51,6 @@ pipeline {
         sh "docker run --rm -i -v \$(pwd)/airship:/usr/src/app  -e \"NPM_TOKEN=${NPM_TOKEN}\" geographica/airship_www echo \"//registry.npmjs.org/:_authToken=$NPM_TOKEN\" > ~/.npmrc &&  npm publish --access=public"
       }
       post {
-      always {
-        stage("Deploy") {
-          when {
-              anyOf {
-                  branch 'master';
-              }
-          }
-          steps {
-            sh "docker run -i --rm  -v \$(pwd)/dist:/usr/src/app/dist geographica/airship_www ng build -op dist/dist --locale es"
-            sh "cp deploy_demo/s3_website.yml s3_website.yml"
-            sh "docker run --rm -i -v \$(pwd):/usr/src/app  -e \"S3_WEBSITE_ID=${CRED_USR}\" -e \"S3_WEBSITE_SECRET=${CRED_PSW}\" geographica/s3_website cfg apply"
-            sh "docker run --rm -i -v \$(pwd):/usr/src/app  -e \"S3_WEBSITE_ID=${CRED_USR}\" -e \"S3_WEBSITE_SECRET=${CRED_PSW}\" geographica/s3_website push"
-            sh "rm s3_website.yml"
-          }
-          post {
-           failure {
-             echo "Pipeline is done"
-             // notify users when the Pipeline fails
-             mail to: 'build@geographica.gs',
-             subject: "Failed Airship: ${currentBuild.fullDisplayName}",
-             body: "Something is wrong"
-           }
-         }
-        }
-      }
        failure {
          echo "Pipeline is done"
          // notify users when the Pipeline fails
