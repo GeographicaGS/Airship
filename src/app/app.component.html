@@ -24,18 +24,22 @@
 <section>
   <input type="text" placeholder="E.g. Placeholder text">
   <input type="text" value="Text entered">
-  <input class="error" type="text" value="Text entered">
+  <div>
+    <input class="error" type="text" value="Text entered">
+    <label class="error">This field is required</label>
+  </div>
   <input readonly type="text" value="Text entered">
   <input class="search" type="text" placeholder="Search...">
 </section>
 
 <section>
   <ash-checkbox checked></ash-checkbox>
-  <ash-checkbox checked class="error"></ash-checkbox>
+  <ash-checkbox checked class="error`"></ash-checkbox>
   <ash-checkbox checked class="disabled"></ash-checkbox>
   <ash-checkbox></ash-checkbox>
   <ash-checkbox class="error"></ash-checkbox>
   <ash-checkbox checked>checbox con texto</ash-checkbox>
+  <ash-checkbox checked color="#7F3C8D">checbox con texto y color</ash-checkbox>
 </section>
 
 <section>
@@ -89,4 +93,22 @@
   [(value)]="dateRangeValue"
   >
   </ash-date-picker>
+</section>
+
+<section>
+  <ash-select
+    [values]="selectValues"
+    (valueChange)="valueDateSelectChange($event)"
+  ></ash-select>
+  <ash-select
+    [value]="selectValues[1]"
+    [values]="selectValues"
+    (valueChange)="valueDateSelectChange($event)"
+  ></ash-select>
+</section>
+
+<section>
+  <ash-loading size="25"></ash-loading>
+  <ash-loading></ash-loading>
+  <ash-loading size="100"></ash-loading>
 </section>

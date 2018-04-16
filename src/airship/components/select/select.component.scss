@@ -1,0 +1,56 @@
+@import 'common.scss';
+
+:host {
+  position: relative;
+  >ul {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 100%;
+    // margin-top: 8px;
+    background-color: $colorWhite;
+    box-shadow: 0 2px 8px 0 rgba(44,44,44,0.16);
+    border-radius: 4px;
+    border: 1px solid $colorUi3;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $animationTimeFast $animationFuncAlt, transform $animationTimeFast $animationFuncAlt;
+    &.active {
+      transform: translateY(8px);
+      opacity: 1;
+      pointer-events: all;
+    }
+    li {
+      height: 37px;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: $colorType1;
+      cursor: pointer;
+      border-bottom: 1px solid $colorUi3;
+      padding: 0 12px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-color: $colorBrand3;
+        opacity: 0;
+        transition: opacity $animationTimeFast $animationFuncAlt;
+      }
+      &:last-child {
+        border: none;
+      }
+      &:hover {
+        &:before {
+          opacity: .16;
+        }
+      }
+    }
+  }
+}

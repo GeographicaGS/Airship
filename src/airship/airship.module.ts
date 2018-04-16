@@ -8,6 +8,8 @@ import { SwitchComponent } from './components/switch/switch.component';
 import { RangeComponent } from './components/range/range.component';
 import { PagerComponent } from './components/pager/pager.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { SelectComponent } from './components/select/select.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 const components = [
   ButtonComponent,
@@ -15,7 +17,9 @@ const components = [
   SwitchComponent,
   RangeComponent,
   PagerComponent,
-  DatePickerComponent
+  DatePickerComponent,
+  SelectComponent,
+  LoadingComponent
 ];
 
 @NgModule({

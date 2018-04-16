@@ -1,0 +1,4 @@
+<input type="text" readonly class="dropdown notDisabled" value="{{value ? value.label:''}}" (focus)="showDropdown=true" (focusout)="focusout()">
+<ul [class.active]="showDropdown">
+  <li *ngFor="let v of values" (click)="select(v)">{{v.label}}</li>
+</ul>

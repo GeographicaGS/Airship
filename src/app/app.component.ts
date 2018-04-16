@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  selectValues = [
+    {value: 1, label: 'Valor 1'},
+    {value: 2, label: 'Valor 2'},
+    {value: 3, label: 'Valor 4'}
+  ];
+
   datePickerValue = new Date('October 13, 2014 11:13:00');
   dateRangeValue = {
     start: new Date(),
@@ -35,6 +41,10 @@ export class AppComponent implements OnInit {
   }
 
   valueDatePickerChange(value) {
+    console.log(value);
+  }
+
+  valueDateSelectChange(value) {
     console.log(value);
   }
 }
