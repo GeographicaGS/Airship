@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-interface SelectValues {
+export interface SelectValues {
   value: any;
   label: string;
 }
@@ -19,7 +19,7 @@ export class SelectComponent implements OnInit {
   /**
   * Drowdown values. Must be an object like {value:any, label:string}
   */
-  @Input('values') values: Array<SelectValues> = [];
+  @Input() values: Array<SelectValues> = [];
   /**
   * Fuction will be fired when value changes
   */
