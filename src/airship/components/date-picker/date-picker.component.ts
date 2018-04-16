@@ -9,21 +9,47 @@ import { DateRangePicker } from 'tiny-date-picker/dist/date-range-picker';
 })
 export class DatePickerComponent implements OnInit, AfterViewInit {
 
+  /**
+  * Two posibles modes: <br>
+  * - classic: normal date picker
+  * - range: range date picker
+  */
   @Input() mode = 'classic';
+  /**
+  * Weekdays. Useful for translations
+  */
   @Input() days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  /**
+  * Month days. Useful for translations
+  */
   @Input() months = [
     'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
   ];
+  /**
+  * To format each date
+  */
   @Input() formatFunction = this.formatDate;
-  // _value = new Date();
+  /**
+  * @ignore
+  */
   _value: any;
+  /**
+  * For clasic mode value is a type date.
+  * For rage mode value is a json like { start: < date >, end: < date >}
+  }
+  */
   @Input() get value() {
     return this._value;
   }
+  /**
+  * @ignore
+  */
   set value(date) {
     this._value = date;
   }
-
+  /**
+  * Fuction will be fired when value changes
+  */
   @Output('valueChange') valueChange = new EventEmitter<any>();
   @ViewChild('datepicker') datepicker;
   @ViewChild('rangeContainer') rangeContainer;

@@ -1,6 +1,0 @@
-<div class="slider" #slider>
-  <div class="connect" #connect></div>
-  <div *ngFor="let v of values; let i = index" [attr.index]="i" class="handle" (mousedown)="dragStart($event)" [class.hover]="currentHandleIndex === i" [ngStyle]="{'left': this.handlesValues[i] + '%', 'z-index': handlesZindex[i]}">
-    <label>{{parse(values[i], i)}}</label>
-  </div>
-</div>

@@ -7,8 +7,17 @@ import { Component, OnInit, Input, Output, ViewChild, EventEmitter, HostBinding 
 })
 export class PagerComponent implements OnInit {
 
+  /**
+  * Number of pages
+  */
   @Input() pageNumber: number;
+  /**
+  * Current page
+  */
   @Input() value = 1;
+  /**
+  * Fuction will be fired when value changes
+  */
   @Output('valueChange') valueChange = new EventEmitter<any>();
   @ViewChild('inputNumber') inputNumber;
   @ViewChild('backButton') backButton;

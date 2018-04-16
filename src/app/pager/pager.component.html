@@ -1,6 +1,0 @@
-<button #backButton class="secondary back" (click)="back()"></button>
-<div class="content" (click)="activeEditMode()">
-  <input #inputNumber type="number" [(ngModel)]="value" (change)="currentChange($event)" (focusout)="desactivateEditMode()">
-  <span>{{value}} / {{pageNumber}}</span>
-</div>
-<button #nextButton class="secondary next" (click)="next()"></button>
