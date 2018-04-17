@@ -77,7 +77,7 @@ export class RangeComponent implements OnInit {
   }
 
   drag(e) {
-    const offsetLeft = this.slider.nativeElement.offsetLeft + 7, // Seven is the width of handle,
+    const offsetLeft = this.slider.nativeElement.getBoundingClientRect().left + 7, // Seven is the width of handle,
       totalWidth = this.slider.nativeElement.offsetWidth;
 
     let value, percentage;
