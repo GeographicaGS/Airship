@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  checkedValue = true;
+  switchValue = true;
+
   selectValues = [
     {value: 1, label: 'Valor 1'},
     {value: 2, label: 'Valor 2'},
@@ -32,19 +35,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  valueRageChange(values) {
-    console.log(values);
-  }
-
-  valueRangeChange(value) {
-    console.log(value);
-  }
-
-  valueDatePickerChange(value) {
-    console.log(value);
-  }
-
-  valueDateSelectChange(value) {
-    console.log(value);
+  valueChange(e) {
+    console.log(e);
   }
 }

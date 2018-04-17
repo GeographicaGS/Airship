@@ -91,9 +91,9 @@ export class DatePickerComponent implements OnInit, AfterViewInit {
       }).on({
         statechange: (_, dp) => {
           _this.value = dp.state;
-          _this.valueChange.emit(_this._value);
           if (_this._value.start && _this._value.end) {
             setTimeout(() => {
+              _this.valueChange.emit(_this._value);
               _this.preventHideRangeDataPicker = false;
               _this.hideRangeDataPicker();
             }, 100);

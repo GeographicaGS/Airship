@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CheckboxComponent } from '../checkbox/checkbox.component';
 
 /**
 * Posible classes: disabled
@@ -8,16 +9,6 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss']
 })
-export class SwitchComponent implements OnInit {
-
-  /**
-  * For check the switch add checked to the component. It is not necessary to assign value
-  */
-  @Input('checked') checked: string;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class SwitchComponent extends CheckboxComponent {
 
 }

@@ -1,5 +1,5 @@
 <label class="container">
-  <input type="checkbox" checked="{{checked === '' ? 'checked':''}}">
+  <input type="checkbox" [checked]="checked" (change)="change()">
   <span class="checkmark"></span>
   <span class="text"><div *ngIf="color" class="color" [ngStyle]="{'background-color': color}"></div><ng-content></ng-content></span>
 </label>

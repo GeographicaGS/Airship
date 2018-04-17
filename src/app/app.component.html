@@ -33,19 +33,19 @@
 </section>
 
 <section>
-  <ash-checkbox checked></ash-checkbox>
-  <ash-checkbox checked class="error`"></ash-checkbox>
-  <ash-checkbox checked class="disabled"></ash-checkbox>
+  <ash-checkbox [(checked)]="checkedValue" (valueChange)="valueChange($event)"></ash-checkbox>
+  <ash-checkbox [checked]="true" class="error`"></ash-checkbox>
+  <ash-checkbox [checked]="true" class="disabled"></ash-checkbox>
   <ash-checkbox></ash-checkbox>
   <ash-checkbox class="error"></ash-checkbox>
-  <ash-checkbox checked>checbox con texto</ash-checkbox>
-  <ash-checkbox checked color="#7F3C8D">checbox con texto y color</ash-checkbox>
+  <ash-checkbox [checked]="true">checbox con texto</ash-checkbox>
+  <ash-checkbox [checked]="true" color="#7F3C8D">checbox con texto y color</ash-checkbox>
 </section>
 
 <section>
   <ash-switch></ash-switch>
-  <ash-switch checked></ash-switch>
-  <ash-switch checked class="disabled"></ash-switch>
+  <ash-switch [(checked)]="switchValue" (valueChange)="valueChange($event)"></ash-switch>
+  <ash-switch [checked]="true" class="disabled"></ash-switch>
 </section>
 
 <section>
@@ -55,7 +55,7 @@
         [min]="100"
         [max]="500"
         [(values)]="rageValues"
-        (valueChange)="valueRageChange($event)"
+        (valueChange)="valueChange($event)"
         [labelFunction]="rageParseFunction"
       ></ash-range>
     </div>
@@ -85,12 +85,13 @@
 <section>
   <ash-date-picker
   [(value)]="datePickerValue"
-  (valueChange)="valueDatePickerChange($event)"
+  (valueChange)="valueChange($event)"
   ></ash-date-picker>
 
   <ash-date-picker style="width: 200px"
   mode="range"
   [(value)]="dateRangeValue"
+  (valueChange)="valueChange($event)"
   >
   </ash-date-picker>
 </section>
@@ -98,12 +99,12 @@
 <section>
   <ash-select
     [values]="selectValues"
-    (valueChange)="valueDateSelectChange($event)"
+    (valueChange)="valueChange($event)"
   ></ash-select>
   <ash-select
     [value]="selectValues[1]"
     [values]="selectValues"
-    (valueChange)="valueDateSelectChange($event)"
+    (valueChange)="valueChange($event)"
   ></ash-select>
 </section>
 
