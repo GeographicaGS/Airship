@@ -16,6 +16,14 @@
       background-color: $colorBrand1;
       z-index: 1;
     }
+    .handles {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 14px;
+      z-index: 2;
+    }
     .handle {
       position: absolute;
       top: 0;
@@ -27,7 +35,7 @@
       border-radius: 100%;
       border: 1px solid $colorBrand1;
       background-color: $colorWhite;
-      z-index: 2;
+      z-index: 3;
       transition: width $animationTimeBlink $animationFuncAlt, height $animationTimeBlink $animationFuncAlt;
       &:hover, &.hover {
         width: 16px;
@@ -42,15 +50,23 @@
         // top: 16px;
         padding-top: 16px;
         top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
+        // left: 0;
+        // right: 0;
+        // margin: 0 auto;
         text-align: center;
         font-size: 10px;
         @include font('medium');
         color: $colorType1;
         white-space: nowrap;
-        transition: padding-top $animationTimeBlink $animationFuncAlt
+        transition: padding-top $animationTimeBlink $animationFuncAlt;
+        &.center {
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+        &.left{
+          right: 0;
+        }
       }
     }
   }

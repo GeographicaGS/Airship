@@ -46,6 +46,10 @@
   <ash-switch></ash-switch>
   <ash-switch [(checked)]="switchValue" (valueChange)="valueChange($event)"></ash-switch>
   <ash-switch [checked]="true" class="disabled"></ash-switch>
+  <ash-switch [checked]="true">switch con texto</ash-switch>
+  <div style="width: 100px;">
+    <ash-switch [checked]="true">switch con texto</ash-switch>
+  </div>
 </section>
 
 <section>
@@ -53,7 +57,7 @@
      <div style="flex: 0 0 200px">
       <ash-range
         [min]="100"
-        [max]="500"
+        [max]="5000000"
         [(values)]="rageValues"
         (valueChange)="valueChange($event)"
         [labelFunction]="rageParseFunction"

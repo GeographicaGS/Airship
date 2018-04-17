@@ -41,7 +41,8 @@ export class RangeComponent implements OnInit {
   handlesValues = [];
   handlesZindex = [];
 
-  @ViewChild('slider') slider;
+  // @ViewChild('slider') slider;
+  @ViewChild('handleContainer') handleContainer;
   @ViewChild('connect') connect;
 
   /**
@@ -77,8 +78,8 @@ export class RangeComponent implements OnInit {
   }
 
   drag(e) {
-    const offsetLeft = this.slider.nativeElement.getBoundingClientRect().left + 7, // Seven is the width of handle,
-      totalWidth = this.slider.nativeElement.offsetWidth;
+    const offsetLeft = this.handleContainer.nativeElement.getBoundingClientRect().left + 7, // Seven is the width of handle,
+      totalWidth = this.handleContainer.nativeElement.offsetWidth;
 
     let value, percentage;
 
@@ -120,6 +121,7 @@ export class RangeComponent implements OnInit {
     this.calculateHandlesValue();
     this.resizeConnect();
     this.calculateHandlesZindex();
+    // this.calculateLabelsAlign();
   }
 
   private calculateHandlesValue() {
@@ -156,5 +158,21 @@ export class RangeComponent implements OnInit {
       return this.labelFunction(value, index);
     }
     return value;
+  }
+
+  calculateLabelAlignClass(index) {
+    const handle = this.handleContainer.nativeElement.querySelector(`div[index="${index}"]`);
+    if (handle) {
+      const label = handle.querySelector('label');
+      if (label && label.textContent !== '') {
+        label.classList.remove('center');
+        label.classList.remove('left');
+        if (label.clientWidth + handle.offsetLeft > this.handleContainer.nativeElement.clientWidth) {
+          label.classList.add('left');
+        } else {
+          label.classList.add('center');
+        }
+      }
+    }
   }
 }
