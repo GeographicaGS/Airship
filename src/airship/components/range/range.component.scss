@@ -50,6 +50,7 @@
         // top: 16px;
         padding-top: 16px;
         top: 0;
+        min-width: 100%;
         // left: 0;
         // right: 0;
         // margin: 0 auto;
@@ -61,8 +62,8 @@
         transition: padding-top $animationTimeBlink $animationFuncAlt;
         &.center {
           left: 0;
-          right: 0;
-          margin: 0 auto;
+          // right: 0;
+          // margin: 0 auto;
         }
         &.left{
           right: 0;

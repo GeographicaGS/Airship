@@ -165,11 +165,11 @@ export class RangeComponent implements OnInit {
     if (handle) {
       const label = handle.querySelector('label');
       if (label && label.textContent !== '') {
-        label.classList.remove('center');
-        label.classList.remove('left');
         if (label.clientWidth + handle.offsetLeft > this.handleContainer.nativeElement.clientWidth) {
+          label.classList.remove('center');
           label.classList.add('left');
         } else {
+          label.classList.remove('left');
           label.classList.add('center');
         }
       }
