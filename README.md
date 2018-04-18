@@ -4,6 +4,8 @@ An Angular implementation of [CARTO's Airship framework](https://carto.com/airsh
 
 All this code is based on the original [CARTO library of Airship](https://github.com/CartoDB/airship), it's available at [npm](https://www.npmjs.com/package/@carto/airship).
 
+If you're interesting in an Angular implementation this library will help you, but if you need a non Angular solution use CARTO's [implementation](https://github.com/CartoDB/airship).
+
 
 ## Installation
 
