@@ -2,8 +2,6 @@
 
 An Angular implementation of [CARTO's Airship framework](https://carto.com/airship).
 
-All the graphic assets belong to [CARTO](https://carto.com).
-
 All this code is based on the original [CARTO library of Airship](https://github.com/CartoDB/airship), it's available at [npm](https://www.npmjs.com/package/@carto/airship).
 
 
