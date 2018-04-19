@@ -46,12 +46,13 @@
       @include font('medium');
       color: $colorType1;
     }
-    input[type=number]{
+    input[type=number], input[type=number]:focus{
       display: none;
       width: 0;
       max-width: 100%;
       padding: 0;
       border: none;
+      box-shadow: none;
       text-align: center;
       -moz-appearance:textfield;
       &::-webkit-inner-spin-button, ::-webkit-outer-spin-button {

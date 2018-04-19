@@ -72,7 +72,7 @@ body {
     }
   }
 
-  input[type="text"] {
+  input[type="text"], input[type="number"] {
     font-family: $fontFamily;
     height: 30px;
     color: $colorType1;

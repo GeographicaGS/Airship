@@ -86,6 +86,7 @@ export class DatePickerComponent implements OnInit, AfterViewInit {
       });
 
     } else if (this.mode === 'range') {
+      let preventEmit = false;
       datePicker = DateRangePicker(this.datepicker.nativeElement, {
         startOpts: options
       }).on({
@@ -93,7 +94,11 @@ export class DatePickerComponent implements OnInit, AfterViewInit {
           _this.value = dp.state;
           if (_this._value.start && _this._value.end) {
             setTimeout(() => {
-              _this.valueChange.emit(_this._value);
+              if (!preventEmit) {
+                _this.valueChange.emit(_this._value);
+              } else {
+                preventEmit = false;
+              }
               _this.preventHideRangeDataPicker = false;
               _this.hideRangeDataPicker();
             }, 100);
@@ -101,6 +106,7 @@ export class DatePickerComponent implements OnInit, AfterViewInit {
         }
       });
       if (this.value) {
+        preventEmit = true;
         datePicker.setState({
           start: this.value.start,
           end: this.value.end,

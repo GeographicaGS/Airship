@@ -40,6 +40,7 @@ export class RangeComponent implements OnInit {
   currentHandleIndex: number = null;
   handlesValues = [];
   handlesZindex = [];
+  labelAlignClass = [];
 
   // @ViewChild('slider') slider;
   @ViewChild('handleContainer') handleContainer;
@@ -115,13 +116,18 @@ export class RangeComponent implements OnInit {
       this.values[this.currentHandleIndex] = value.toString().split('.').length > 1 ? parseFloat(value.toFixed(2)) : value;
     }
     this.resizeConnect();
+    this.labelAlignClass[this.currentHandleIndex] = this.calculateLabelAlignClass(this.currentHandleIndex);
   }
 
   private init() {
     this.calculateHandlesValue();
     this.resizeConnect();
     this.calculateHandlesZindex();
-    // this.calculateLabelsAlign();
+    setTimeout(() => {
+      for (let i = 0; i < this.values.length; i++) {
+        this.labelAlignClass[i] = this.calculateLabelAlignClass(i);
+      }
+    }, 100);
   }
 
   private calculateHandlesValue() {
@@ -160,17 +166,15 @@ export class RangeComponent implements OnInit {
     return value;
   }
 
-  calculateLabelAlignClass(index) {
+  private calculateLabelAlignClass(index) {
     const handle = this.handleContainer.nativeElement.querySelector(`div[index="${index}"]`);
     if (handle) {
       const label = handle.querySelector('label');
       if (label && label.textContent !== '') {
         if (label.clientWidth + handle.offsetLeft > this.handleContainer.nativeElement.clientWidth) {
-          label.classList.remove('center');
-          label.classList.add('left');
+          return 'left';
         } else {
-          label.classList.remove('left');
-          label.classList.add('center');
+          return 'center';
         }
       }
     }

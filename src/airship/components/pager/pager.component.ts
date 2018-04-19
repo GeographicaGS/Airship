@@ -10,7 +10,7 @@ export class PagerComponent implements OnInit {
   /**
   * Number of pages
   */
-  @Input() pageNumber: number;
+  @Input() total: number;
   /**
   * Current page
   */
@@ -31,19 +31,19 @@ export class PagerComponent implements OnInit {
 
   ngOnInit() {
     this.value = parseInt(<any>this.value, 10);
-    this.pageNumber = parseInt(<any>this.pageNumber, 10);
+    this.total = parseInt(<any>this.total, 10);
     this.valueChanged(false);
   }
 
   currentChange(e) {
     const value = parseInt(e.currentTarget.value, 10);
-    if (value >= 1 && value <= this.pageNumber) {
+    if (value >= 1 && value <= this.total) {
       this.value = value;
     } else {
       if (value < 1) {
         this.value = 1;
       } else {
-        this.value = this.pageNumber;
+        this.value = this.total;
       }
     }
     this.valueChanged();
@@ -57,7 +57,7 @@ export class PagerComponent implements OnInit {
   }
 
   next() {
-    if (this.value < this.pageNumber) {
+    if (this.value < this.total) {
       this.value ++;
     }
     this.valueChanged();
@@ -85,7 +85,7 @@ export class PagerComponent implements OnInit {
     this.nextButton.nativeElement.classList.remove('disable');
     if (this.value === 1) {
       this.backButton.nativeElement.classList.add('disable');
-    } else if (this.value === this.pageNumber) {
+    } else if (this.value === this.total) {
       this.nextButton.nativeElement.classList.add('disable');
     }
     if (emit) {
