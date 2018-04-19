@@ -1,6 +1,11 @@
 # Airship
 
-Airship is a Angular components library built by Geographica
+An Angular implementation of [CARTO's Airship framework](https://carto.com/airship).
+
+All this code is based on the original [CARTO library of Airship](https://github.com/CartoDB/airship), it's available at [npm](https://www.npmjs.com/package/@carto/airship).
+
+If you're interesting in an Angular implementation this library will help you, but if you need a non Angular solution, you'll better prefer CARTO's [implementation](https://github.com/CartoDB/airship).
+
 
 ## Installation
 
@@ -24,10 +29,14 @@ Develop your components inside "src" folder in airship.module.ts
 
 ### Demo page
 
+Available at [http://airship.geographica.io](http://airship.geographica.io)
+
 app.module.ts is a module for demo page. If you want to test your components you can add them in app.component.html.
 Run `ng serve` and navigate to `http://localhost:4200/`
 
 ### Doc page
+
+Avaible at  [http://airship.geographica.io/doc/index.html](http://airship.geographica.io/doc/index.html)
 
 The documentation is generated with [Compodoc](https://compodoc.github.io/website/guides/getting-started.html). if you want to test the generated documentation run `npm run doc:buildandserve` and navigate to `http://localhost:8080/`
 
