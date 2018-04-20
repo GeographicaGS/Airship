@@ -41,29 +41,23 @@
         width: 16px;
         height: 16px;
         label {
-          padding-top: 20px;
+          margin-top: 20px;
         }
       }
       label {
         user-select: none;
         position: absolute;
-        // top: 16px;
-        padding-top: 16px;
+        margin-top: 16px;
         top: 0;
         min-width: 100%;
-        // left: 0;
-        // right: 0;
-        // margin: 0 auto;
         text-align: center;
         font-size: 10px;
         @include font('medium');
         color: $colorType1;
         white-space: nowrap;
-        transition: padding-top $animationTimeBlink $animationFuncAlt;
+        transition: margin $animationTimeBlink $animationFuncAlt;
         &.center {
           left: 0;
-          // right: 0;
-          // margin: 0 auto;
         }
         &.left{
           right: 0;
