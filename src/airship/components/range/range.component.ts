@@ -133,9 +133,13 @@ export class RangeComponent implements OnInit {
   private calculateHandlesValue() {
     this.handlesValues = [];
     for (const v of this._values) {
-      this.handlesValues.push(
-        (((v - this.min) * 100) / (this.max - this.min))
-      );
+      let handleValue = (((v - this.min) * 100) / (this.max - this.min));
+      if (handleValue > 100) {
+        handleValue = 100;
+      } else if (handleValue < 0) {
+        handleValue = 0;
+      }
+      this.handlesValues.push(handleValue);
     }
   }
 
