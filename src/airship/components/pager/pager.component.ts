@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, HostBinding } from '@angular/core';
+import { CompileNgModuleMetadata } from '@angular/compiler';
 
 @Component({
   selector: 'ash-pager',
@@ -85,7 +86,8 @@ export class PagerComponent implements OnInit {
     this.nextButton.nativeElement.classList.remove('disable');
     if (this.value === 1) {
       this.backButton.nativeElement.classList.add('disable');
-    } else if (this.value === this.total) {
+    }
+    if (this.value === this.total) {
       this.nextButton.nativeElement.classList.add('disable');
     }
     if (emit) {
