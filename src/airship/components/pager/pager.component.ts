@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, HostBinding } from '@angular/core';
-import { CompileNgModuleMetadata } from '@angular/compiler';
 
 @Component({
   selector: 'ash-pager',
