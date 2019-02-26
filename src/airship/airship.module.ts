@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ButtonComponent } from './components/button/button.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { RadioComponent } from './components/radio/radio.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { RangeComponent } from './components/range/range.component';
 import { PagerComponent } from './components/pager/pager.component';
@@ -14,6 +15,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 const components = [
   ButtonComponent,
   CheckboxComponent,
+  RadioComponent,
   SwitchComponent,
   RangeComponent,
   PagerComponent,

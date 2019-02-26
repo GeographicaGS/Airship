@@ -1,0 +1,4 @@
+<label class="container">
+  <input type="radio" [name]="name"[value]="value" [checked]="checked" (change)="change()">
+  <span class="text"><div *ngIf="color" class="color" [ngStyle]="{'background-color': color}"></div><ng-content></ng-content></span>
+</label>
