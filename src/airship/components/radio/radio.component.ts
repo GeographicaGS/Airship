@@ -10,25 +10,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class RadioComponent implements OnInit {
 
-  /**
-  * @ignore
-  */
-  _checked: boolean;
-  /**
-  * @ignore
-  */
   @Output() checkedChange = new EventEmitter<boolean>();
   /**
   * For check the radio.
   */
-  @Input() get checked() {
-    return this._checked;
-  }
-  set checked(value) {
-    this._checked = value;
-
-    this.checkedChange.emit(this._checked);
-  }
+  @Input() checked: boolean;
   /**
   * Color will appear like a small circle beside text
   */
@@ -55,8 +41,8 @@ export class RadioComponent implements OnInit {
   }
 
   change() {
-    this._checked = !this._checked;
-    this.valueChange.emit(this._checked);
+    this.checked = true;
+    this.valueChange.emit(this.value);
   }
 
 }
