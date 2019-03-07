@@ -1,0 +1,110 @@
+@import 'common.scss';
+
+:host {
+  .container {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    input {
+      display: block;
+      position: relative;
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      padding: 0;
+      appearance: none;
+      transition: all 0.3s;
+      border: none;
+      border-radius: 50%;
+      background: none;
+      box-shadow: inset 0 0 0 1px rgba(44, 44, 44, 0.16);
+      cursor: pointer;
+      -webkit-appearance: none;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: calc(50% - 3px);
+        left: calc(50% - 3px);
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+      }
+
+       &:checked {
+        box-shadow: inset 0 0 0 1px $colorBrand1;
+
+        &::after {
+          animation: radioIn 300ms;
+          animation-fill-mode: none;
+          opacity: 1;
+          animation-fill-mode: forwards;
+          background-color: $colorBrand1;
+        }
+
+        & ~ .text {
+          .color {
+            &:after {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .text {
+      font-size: 12px;
+      color: $colorType1;
+      margin-left: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .color {
+        height: 8px;
+        width: 8px;
+        display: inline-block;
+        border-radius: 100%;
+        margin-right: 4px;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 8px;
+          width: 8px;
+          border-radius: 100%;
+          background-color: $colorUi3;
+          z-index: 1;
+          transition: opacity $animationTimeBlink $animationFuncAlt;
+        }
+      }
+    }
+  }
+  &.error {
+    .container {
+      input:checked {
+        box-shadow: inset 0 0 0 1px  $colorSupport1;
+
+        &:after {
+          background-color: $colorSupport1;
+        }
+      }
+    }
+  }
+  &.disabled {
+    pointer-events: none;
+    .container {
+      input:checked {
+        &:after {
+          background-color: $colorUi2;
+          border-color: $colorUi3;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
