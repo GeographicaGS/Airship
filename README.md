@@ -11,6 +11,7 @@ If you're interesting in an Angular implementation this library will help you, b
 
 Airship is available as an [npm package](https://www.npmjs.com/package/@geographica/airship).
 Choose the version corresponding to your Angular version:
+
 | Angular | Airship |
 |---------|---------|
 | 5       | 1.x     |
